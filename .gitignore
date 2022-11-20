@@ -1,0 +1,15 @@
+.env
+
+env
+
+__pycache__
+
+.DS_Store
+
+.vscode
+
+*.log
+
+*.pem
+
+*.csv
