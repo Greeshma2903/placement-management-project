@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'authentication.apps.AuthenticationConfig',
     'app.apps.AppConfig',
-    'job.apps.JobConfig',
+    # 'job.apps.JobConfig',
 ]
 
 MIDDLEWARE = [
