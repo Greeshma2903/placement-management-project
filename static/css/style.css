@@ -1,0 +1,24 @@
+body {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  max-width: 1700px;
+}
+
+.logo-container {
+  width: 50px;
+}
+
+.logo-container img {
+  width: 100%;
+}
+
+p {
+  font-size: 14px;
+}
+
+.card {
+  width: 21rem;
+}
+
+.card img {
+  width: 60px;
+}
