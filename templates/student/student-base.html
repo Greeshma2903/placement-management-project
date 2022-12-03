@@ -16,7 +16,7 @@
         crossorigin="anonymous"></script>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,20 +29,26 @@
     <div class="container_fluid position-relative min-vh-100 h-100 w-100 mx-auto">
         <!-- navbar home -->
         <header class="p-3 text-bg-dark">
-            <div class="d-flex flex-wrap align-items-center justify-content-between container">
-                <a href="/"
-                    class="logo-container d-flex align-items-center mb-2 mx-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="../data/logo.png" alt="logo" />
+            <nav
+                class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
+                <a href="/" class="navbar-brand logo-container">
+                    <img src="/data/logo.png" alt="logo" />
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Dashboard</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">My Applications</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Profile</a></li>
-                </ul>
+                <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
+                    <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
+                        <li class="nav-item"><a href="#" class="active nav-link px-2">Dashboard</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2">My Applications</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2">Profile</a></li>
+                    </ul>
 
-                <button class="btn btn-warning">Logout</button>
-            </div>
+                    <button class="btn btn-warning">Logout</button>
+                </div>
+            </nav>
         </header>
 
     

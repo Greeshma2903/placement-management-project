@@ -3,6 +3,7 @@ body {
   max-width: 1700px;
 }
 
+/* ==================== login home ==================== */
 .logo-container {
   width: 50px;
 }
@@ -11,9 +12,11 @@ body {
   width: 100%;
 }
 
-p {
+.login-section p {
   font-size: 14px;
 }
+
+/* ==================== job board ==================== */
 
 .card {
   width: 21rem;
@@ -22,3 +25,24 @@ p {
 .card img {
   width: 60px;
 }
+
+/* ================= job description ================= */
+
+.job-description .logo-container {
+  width: 80px;
+}
+
+.job-descriptin .logo-container img {
+  object-fit: cover;
+}
+
+.job-desc-grid > div {
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+/* @media screen and (min-width: 992px) {
+  .job-desc-grid > div:not(.job-info) {
+    margin: 0 0.5rem;
+  }
+} */
