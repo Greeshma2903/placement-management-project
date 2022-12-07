@@ -1,102 +1,121 @@
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import authenticate, login, logout
-# from django.contrib import messages
-# from django.contrib.auth.decorators import login_required
-# from django.http import HttpResponseRedirect
-# from .threads import *
-# from .models import *
-# from django.conf import settings
-# import uuid
+from django.shortcuts import render, redirect,HttpResponseRedirect
+from django.contrib.auth import logout , login
+from .models import *
+from django.contrib import messages
+  
+def loginUser(request):
+    return render(request, 'base.html')
+ 
+def doLogin(request):
+     
+    print("here")
+    email_id = request.GET.get('email')
+    password = request.GET.get('password')
+    user_type = request.GET.get('user_type')
 
-# context = {}
+    print(email_id)
+    print(password)
+    print(request.user)
+    if not (email_id and password):
+        messages.error(request, "Please provide all the details!!")
+        return render(request, 'tpo-base.html')
+ 
+    user = CustomUser.objects.filter(email=email_id, password=password).last()
+    if not user:
+        messages.error(request, 'Invalid Login Credentials!!')
+        return render(request, 'base.html')
+    
+    print(email_id)
+    print(password)
+    print(request.user)
+    if not (email_id and password):
+        messages.error(request, "Please provide all the details!!")
+        return render(request, 'student-base.html')
+ 
+    user = CustomUser.objects.filter(email=email_id, password=password).last()
+    if not user:
+        messages.error(request, 'Invalid Login Credentials!!')
+        return render(request, 'base.html')
 
-# @login_required(login_url='login')
-# def logoutView(request):
-#     logout(request)
-#     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    login(request, user)
+    print(request.user)
+ 
+    if user.user_type == CustomUser.student:
+             return redirect('student-base/')
+    elif user.user_type == CustomUser.teacher:
+        return redirect('tpo-base/')
+ 
+    return render(request, 'student-base.html')
+ 
+     
+def registration(request):
+    return render(request, 'base.html')
+     
+ 
+def doRegistration(request):
+    email_id = request.GET.get('email')
+    password = request.GET.get('password')
+    confirm_password = request.GET.get('confirmPassword')
+ 
+    print(email_id)
+    print(password)
+    print(confirm_password)
+    if not (email_id and password and confirm_password):
+        messages.error(request, 'Please provide all the details!!')
+        return render(request, 'tpo-base.html')
+     
+    if password != confirm_password:
+        messages.error(request, 'Both passwords should match!!')
+        return render(request, 'tpo-base.html')
+ 
+    is_user_exists = CustomUser.objects.filter(email=email_id).exists()
+ 
+    if is_user_exists & user_type == CustomUser.teacher:
+        messages.error(request, 'User with this email id already exists. Please proceed to login!!')
+        return render(request, 'tpo-base.html')
+    elif user_type == CustomUser.student:
+        return render(request, 'student-base.html')
+ 
+    user_type = get_user_type_from_email(email_id)
+ 
+    if user_type is None:
+        return messages.error(request, "Please use valid format for the email id: ")
 
+    if user_type == CustomUser.teacher:
+        return render(request, 'tpo-base.html')
+    elif user_type == CustomUser.student:
+        return render(request, 'student-base.html')
+ 
+    email = email_id.split('@')[0].split('.')[0]
+ 
+    if CustomUser.objects.filter(email=email).exists():
+        messages.error(request, 'User with this email already exists. Please use different email')
+        return render(request, 'tpo-base.html')
+    elif CustomUser=='1':
+        return render(request, 'student-base.html')
 
-# def Verify(request, otp):
-#     try:
-#         user_obj = StudentModel.objects.filter(otp = otp).first()
-#         if not user_obj:
-#             messages.error(request, 'User does not exist.')
-#             return redirect('signup')
-#         elif user_obj.is_verified:
-#             messages.success(request, 'Your profile is already verified.')
-#             return redirect('login')
-#         user_obj.is_verified = True
-#         user_obj.save()
-#         messages.success(request, 'Your account has been verified.')
-#         return redirect('login')
-#     except Exception as e :
-#         print(e)
-#         messages.error(request, str(e))
-#     return render(request, "accounts/verify.html", context)
-
-
-# def LogIn(request):
-#     try:
-#         if request.method == 'POST':
-#             email = request.POST.get('email')
-#             password = request.POST.get('password')
-#             customer_obj = Customers.objects.filter(email=email).first()
-#             if customer_obj is None:
-#                 messages.info(request, 'User does not exists. Please Signup')
-#                 return redirect('signup')
-#             if not customer_obj.is_verified:
-#                 messages.info(request, 'This profile is not verified. Please Check your mail.')
-#                 return redirect('login')    
-#             user = authenticate(email=email, password=password)
-#             if user is  None:
-#                 messages.info(request, 'Incorrect Password.')
-#                 return redirect('login')
-#             login(request, user)
-#             messages.success(request, 'Successfully logged in')
-#             return redirect('index')
-#     except Exception as e:
-#         print(e)
-#         messages.error(request, str(e))
-#     return render(request, "accounts/login.html", context)
-
-
-# def Forget(request):
-#     try:
-#         if request.method == 'POST':
-#             email = request.POST.get('email')
-#             user = Customers.objects.get(email=email)
-#             if not user:
-#                 messages.info(request, 'This user does not exist. Please Signup.')
-#                 return redirect('/signup')
-#             token = str(uuid.uuid4())
-#             user.token = token
-#             thread_obj = send_forgot_link(email, token)
-#             thread_obj.start()
-#             user.save()
-#             messages.info(request, 'We have sent you a link to reset password via mail')
-#     except Exception as e:
-#         print(e)
-#         messages.error(request, str(e))
-#     return render(request, "accounts/forgot.html", context)
-
-
-# def Reset(request, token):
-#     try:
-#         customer_obj = Customers.objects.get(token=token)
-#         if not customer_obj:
-#             messages.info(request, 'This user does not exist. Please Signup.')
-#             return redirect('/signup')
-#         if request.method == 'POST':
-#             npw = request.POST.get('npw')
-#             cpw = request.POST.get('cpw')
-#             if npw == cpw:
-#                 customer_obj.set_password(cpw)
-#                 customer_obj.save()
-#                 messages.info(request, 'Password Changed successfully.')
-#                 return redirect('/login')
-#             messages.error(request, 'New Password and Confirm Password dont match.')
-#             return redirect('/login')
-#     except Exception as e :
-#         print(e)
-#         messages.error(request, str(e))
-#     return render(request, "accounts/reset.html", context)
+    user = CustomUser()
+    user.email = email_id
+    user.password = password
+    user.user_type = user_type
+    user.save()
+     
+    if user_type == CustomUser.student:
+        StudentModel.objects.create(admin=user)
+        return render(request, 'student-base.html')
+    elif user_type == CustomUser.teacher:
+        TeacherModel.objects.create(admin=user)
+        return render(request, 'tpo-base.html')
+     
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+ 
+ 
+def get_user_type_from_email(email_id):
+    try:
+        email_id = email_id.split('@')[0]
+        email_user_type = email_id.split('.')[1]
+        return CustomUser.EMAIL_TO_USER_TYPE_MAP[email_user_type]
+    except:
+        return None
