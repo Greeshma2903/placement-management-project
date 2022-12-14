@@ -18,6 +18,7 @@ class JobModel(BaseModel):
     company = models.ForeignKey(CompanyModel, related_name="company_job_listing", on_delete=models.CASCADE)
     description = models.TextField()
     requirements = models.TextField()
+    last_apply_date = models.DateField(auto_now=False, auto_now_add=False)
     pay_rate = models.PositiveIntegerField()
     max_applicant = models.PositiveSmallIntegerField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
