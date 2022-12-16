@@ -52,7 +52,7 @@
 
     <!-- profile section -->
     <section class="student_profile py-5 container">
-        <h2 class="text-primary fw-bolder mb-5">Profile Details</h2>
+        <h2 class="text-warning fw-bolder mb-5">Profile Details</h2>
         <form class="d-md-flex justify-content-around align-items-start">
             <div class="flex-fill p-md-4">
                 <div class="mb-3">
@@ -60,9 +60,13 @@
                     <input type="text" class="form-control" id="nameInput" required>
                 </div>
                 <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required
-                        aria-required>
+                    <label for="bioInput" class="form-label">Short Bio</label>
+                    <textarea type="text" class="form-control" id="bioInput" required
+                        aria-required> </textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="skillInput" class="form-label">Your skills</label>
+                    <input type="text" class="form-control" id="skillInput" placeholder="html, css, java ..." required>
                 </div>
                 <div class="mb-3">
                     <label for="contactNumberInput" class="form-label">Contact Number</label>
@@ -100,7 +104,7 @@
                     <label for="resumeFile" class="form-label">Upload your Resume</label>
                     <input class="form-control" type="file" id="resumeFile" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                <button type="submit" class="btn btn-warning w-100">Submit</button>
             </div>
         </form>
     </section>

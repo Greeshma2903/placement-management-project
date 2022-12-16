@@ -16,6 +16,7 @@ body {
   font-size: 14px;
 }
 
+
 /* ==================== job board ==================== */
 
 .card {
@@ -24,6 +25,10 @@ body {
 
 .card img {
   width: 60px;
+}
+
+.card p {
+  font-size: 0.8rem;
 }
 
 /* ================= job description ================= */
@@ -46,3 +51,8 @@ body {
     margin: 0 0.5rem;
   }
 } */
+
+/* ================= job description ================= */
+footer {
+  height:60px;
+}

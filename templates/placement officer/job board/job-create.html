@@ -45,59 +45,72 @@
                 </ul>
 
                 <button class="btn btn-warning">Logout</button>
-            </div>  
+            </div>
         </nav>
     </header>
 
     <!-- profile section -->
     <section class="student_profile py-5 container">
-        <h2 class="text-primary fw-bolder mb-5">Profile Details</h2>
+        <a class="btn btn-primary" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          back</a>
+        <h2 class="text-primary fw-bolder my-3">Add Job Details</h2>
         <form class="d-md-flex justify-content-around align-items-start">
             <div class="flex-fill p-md-4">
                 <div class="mb-3">
-                    <label for="nameInput" class="form-label">Your Name:</label>
-                    <input type="text" class="form-control" id="nameInput" required>
+                    <label for="jobRoleInput" class="form-label">Job Role <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="jobRoleInput" placeholder="Software Engineer..."
+                        required>
                 </div>
                 <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required
-                        aria-required>
+                    <label for="companyName" class="form-label">Company Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="companyName" required>
                 </div>
                 <div class="mb-3">
-                    <label for="contactNumberInput" class="form-label">Contact Number</label>
-                    <input type="tel" class="form-control" id="contactNumberInput" maxlength="10" required
-                        aria-required>
+                    <label for="companyLogo" class="form-label">Company Logo <span class="text-danger">*</span></label>
+                    <input class="form-control" type="file" id="companyLogo" required>
                 </div>
                 <div class="mb-3">
-                    <label for="Address" class="form-label">Address</label>
-                    <textarea class="form-control" id="Address" rows="3"></textarea>
+                    <label for="jobDescInput" class="form-label">Job Description <span
+                            class="text-danger">*</span></label>
+                    <textarea class="form-control" id="jobDescInput" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="jobDeadline" class="form-label">Application Deadline <span
+                            class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="jobDeadline" required aria-required>
+                </div>
+                <div class="mb-3">
+                    <label for="companyDescription" class="form-label">Company Description</label>
+                    <textarea class="form-control" id="companyDescription"></textarea>
                 </div>
             </div>
             <div class="flex-fill p-md-4">
+
                 <div class="mb-3">
-                    <label for="Birthdate" class="form-label">Date of Birth</label>
-                    <input type="date" name="Birthdate" id="Birthdate" required aria-required>
+                    <label for="jobSkills" class="form-label">Skills required <span class="text-danger">*</span></label>
+                    <textarea name="skillsReqd" id="jobSKills" class="form-control" required aria-required
+                        placeholder="html, css..."></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="Degree" class="form-label">Select your department</label>
-                    <select class="form-select" aria-label="Choice of departments in college" required aria-required>
-                        <option selected disabled value="">Choose...</option>
-                        <option value="Computer">Computer</option>
-                        <option value="IT">IT</option>
-                        <option value="ETC">ETC</option>
-                        <option value="ENE">ENE</option>
-                        <option value="Civil">Civil</option>
-                        <option value="Mechanical">Mechanical</option>
-                        <option value="VLSI">VLSI</option>
-                    </select>
+                    <label for="jobLinks" class="form-label">External Links related to Job <span
+                            class="text-danger">*</span></label>
+                    <input type="url" name="jobLinks" id="jobLinks" class="form-control" required aria-required>
+                </div>
+                <h6 class="text-primary">Contact Details of Company</h6>
+                <div class="mb-3">
+                    <label for="contactName" class="form-label">Contact Name</label>
+                    <input class="form-control" type="text" id="contactName">
                 </div>
                 <div class="mb-3">
-                    <label for="LinkedIn" class="form-label">LinkedIn</label>
-                    <input type="url" name="LinkedIn" id="LinkedIn" required aria-required>
+                    <label for="contactNumber" class="form-label">Phone Number</label>
+                    <input class="form-control" type="tel" id="contactNumber" maxlength="10">
                 </div>
                 <div class="mb-3">
-                    <label for="resumeFile" class="form-label">Upload your Resume</label>
-                    <input class="form-control" type="file" id="resumeFile" required>
+                    <label for="contactEmail" class="form-label"> Email</label>
+                    <input class="form-control" type="email" id="contactEmail">
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Submit</button>
             </div>
