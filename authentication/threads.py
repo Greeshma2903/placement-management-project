@@ -33,7 +33,6 @@
 #         threading.Thread.__init__(self)
 #     def run(self):
 #         try:
-#             otp = random.randint(100001, 999999)
 #             cache.set(otp, self.email, 350)
 #             context["otp"] = otp
 #             html_template = 'verify.html'
@@ -43,5 +42,3 @@
 #             msg = EmailMessage(subject, html_message, email_from, [self.email])
 #             msg.content_subtype = 'html'
 #             msg.send()
-#         except Exception as e:
-#             print(e)

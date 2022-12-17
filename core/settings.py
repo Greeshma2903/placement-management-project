@@ -48,7 +48,8 @@ TEMPLATES_DIRS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': TEMPLATES_DIRS,
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        # 'DIRS': TEMPLATES_DIRS,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,9 +122,5 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 STATIC_URL = '/static/'
-
-#ADDED MANUALLY 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-    
-]
+STATIC_ROOT = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
