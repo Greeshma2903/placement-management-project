@@ -2,6 +2,8 @@ from django.db import models
 from base.models import BaseModel
 from authentication.models import StudentModel
 
+PLACEMENT_STATUS = (("Applied","Applied"),("Placed","Placed"), ("Rejected","Rejected"))
+
 
 class CompanyModel(BaseModel):
     company_name = models.CharField(max_length=50)
@@ -32,6 +34,7 @@ class JobModel(BaseModel):
 class JobApplication(BaseModel):
     job = models.ForeignKey(JobModel, related_name="job_applied", on_delete=models.CASCADE)
     applicant = models.ForeignKey(StudentModel, related_name="job_applicant", on_delete=models.CASCADE)
+    status = models.CharField(choices=PLACEMENT_STATUS, max_length=10, default=PLACEMENT_STATUS[0])
     def __str__(self):
         return self.job.posting
     class Meta:
