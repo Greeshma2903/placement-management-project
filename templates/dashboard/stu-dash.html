@@ -1,20 +1,21 @@
-{% extends '../base.html' %}
+{% extends '../student_base.html' %}
 {% load static %}
 
 {% block content %}
 
-<!-- login section -->
-<!-- <section class="login-section container col-xl-10 col-xxl-8 px-4 py-5 text-center">
-   <h1 class="display-4 fw-bold lh-1 mb-3">
-        Placement Management System
-    </h1>
-    <p class="fs-4 pb-5">
-        The purpose of this system is to automate the existing manual system with the help of computer software and store the data entered for a longer time with ease of access.
-    </p>
-    <div class="d-flex flex-column align-items-center">
-        <a class="btn btn-warning mb-4" href="{% url 'student-login' %}">Login as Placement Officer</a>
-        <a class="btn btn-warning mb-4" href="{% url 'tpo-login' %}">Login as Student</a>
-    </div> 
-</section> -->
+    <!-- job board -->
+    <section class="container my-3 text-primary">
+        <h3>Add Student Login Details</h3>
+        <div class="h-100 d-flex align-items-center justify-content-center text-center">
+
+            <form>
+                <div class="mb-3">
+                    <label for="uploadData" class="form-label">Upload data from excel sheet</label>
+                    <input type="file" id="uploadData" class="form-control">
+                </div>
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
+        </div>
+    </section>
 
 {% endblock content %}

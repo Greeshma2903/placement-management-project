@@ -25,6 +25,7 @@ class StudentModel(MyBaseUser):
     headshot = models.ImageField(upload_to="headshot", height_field=None, width_field=None, max_length=None, blank=True)
     linkedIn_link = models.URLField(max_length=200, null=True, blank=True)
     gitHub_link = models.URLField(max_length=200, null=True, blank=True)
+    is_complete = models.BooleanField(default=False)
     # skills = models.ManyToManyField(SkillsModel, null=True, blank=True)
     def __str__(self):
              return self.name 

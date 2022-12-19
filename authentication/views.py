@@ -16,6 +16,7 @@ def home_page(request):
 
 # about page
 def about_page(request):
+    messages.info(request, 'User does not exists. Please Signup')
     return render(request, "main/about.html")
 
 
@@ -32,10 +33,10 @@ def student_login(request):
             user = authenticate(email=email, password=password)
             if user is  None:
                 messages.info(request, 'Incorrect Password.')
-                return redirect('student-login')
+                return redirect('student-login/')
             login(request, user)
-            messages.success(request, 'Successfully logged in')
-            return redirect('student-dashboard')
+            messages.success(request, 'Student Successfully logged in')
+            return redirect('student-dashboard/')
     except Exception as e:
         print(e)
         return redirect('home')
@@ -50,12 +51,12 @@ def tpo_login(request):
             password = request.POST.get('password')
             teacher_obj = TeacherModel.objects.filter(email=email).first()
             if teacher_obj is None:
-                messages.info(request, 'User does not exists. Please Signup')
-                return redirect('tpo-login')
+                messages.info(request, 'User does not exists.')
+                return redirect('signup')  
             user = authenticate(email=email, password=password)
             if user is  None:
                 messages.info(request, 'Incorrect Password.')
-                return redirect('tpo-login')
+                return redirect('login')
             login(request, user)
             messages.success(request, 'Successfully logged in')
             return redirect('tpo-dashboard')
@@ -121,6 +122,7 @@ def add_student_data(request):
 @login_required(login_url='/student-login/')
 def student_logout(request):
     logout(request)
+    messages.info(request, 'Logged Out')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -128,4 +130,12 @@ def student_logout(request):
 @login_required(login_url='/tpo-login/')
 def tpo_logout(request):
     logout(request)
+    messages.info(request, 'Logged Out')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+# add tpo
+def create_tpo(request):
+    obj = TeacherModel.objects.create(name="a", email="a@gmail.com")
+    obj.set_password("123")
+    obj.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 

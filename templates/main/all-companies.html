@@ -8,35 +8,25 @@
     <h2 class="mb-3">Companies</h2>
     <h6 class="mb-4">A list of companies where our students are placed 🙌</h6>
     <div class="company-card-container row row-cols-1 row-cols-2 row-cols-lg-3 gap-4">
+        
+        {% for com in companies %}
+        
         <div id="company-card" class="col card px-4 py-3" data-company-id="">
             <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
-                <img class="rounded-circle border border-warning border-2 me-3" src="/data/logo/1.png" alt="">
+                <img class="rounded-circle border border-warning border-2 me-3" src="{{ com.logo.url }}" alt="">
                 <div class="fw-semibold">
-                    <h4 class="card-title">Tesla</h4>
+                    <h4 class="card-title">{{ com.company_name | safe }}</h4>
                 </div>
             </div>
-            <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Lorem ipsum dolor sit amet.
-                Itaque, voluptate?</p>
+            <p class="card-text fw-semibold text-secondary">{{ com.desc | safe }}</p>
+            <p class="card-text fw-semibold text-secondary">{{ com.address | safe }}</p>
             <div class="d-sm-flex justify-content-end">
-                <a id="company-link" class="card-link btn btn-warning btn-sm">about</a>
+                <a id="company-link" href={{com.web_link}} target="_blank" class="card-link btn btn-warning btn-sm">about</a>
             </div>
         </div>
-        <div id="company-card" class="col card px-4 py-3" data-company-id="">
-            <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
-                <img class="rounded-circle border border-warning border-2 me-3" src="/data/logo/2.png" alt="">
-                <div class="fw-semibold">
-                    <h4 class="card-title">Google</h4>
-                </div>
-            </div>
-            <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Lorem
-                ipsum dolor sit amet.
-                Itaque, voluptate?</p>
-            <div class="d-sm-flex justify-content-end">
-                <a id="company-link" class="card-link btn btn-warning btn-sm">about</a>
-            </div>
-        </div>
+
+        {% endfor %}
+
     </div>
     </div>
 </section>

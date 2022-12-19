@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(JobModel)
 admin.site.register(CompanyModel)
-admin.site.register(JobApplication)
+admin.site.register(JobApplicationModel)

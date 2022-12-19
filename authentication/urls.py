@@ -5,10 +5,12 @@ from .views import *
 urlpatterns = [
 
 	path("", views.home_page, name='home-page'),
-	path("about", views.about_page, name='about'),
+	path("about/", views.about_page, name='about'),
 
 	path("student-login/", views.student_login, name="student-login"),
 	path("tpo-login/", views.tpo_login, name="tpo-login"),
+
+	path("tpo-create/", views.create_tpo, name="tpo-create"),
 	
 	path("student-logout/", views.student_logout, name="student-logout"),
 	path("tpo-logout/", views.tpo_logout, name="tpo-logout"),
