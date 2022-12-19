@@ -79,18 +79,18 @@ def update_student_profile(request):
     try:
         user = StudentModel.objects.get(email=request.user)
         if request.method == 'POST':
-            user.resume = str(request.FILES['resume'])
+            user.resume = request.FILES['resume']
             user.headshot = request.POST.get("headshot")
             user.linkedIn_link = request.POST.get("linkedIn_link")
             user.gitHub_link = request.POST.get("gitHub_link")
             user.bio = request.POST.get("bio")
             user.skills = request.POST.get("skills")
             user.save()
-            return redirect("student-profile/")
+            print("@@@@@@@@@")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 
     except Exception as e:
         print(e)
-        return redirect('home')
-    return render(request, "accounts/stu-profile.html", context)
+    return render(request, "student/profile.html", context)
 
 
 # add students data

@@ -10,21 +10,23 @@
     {% for job in jobs %}
 
     <div class="application-container row row-cols-lg-3 row-cols-md-2 row-cols-1">
-        <div id="job-card" class="card px-4 py-3" data-job-id="">
-            <div class="d-md-flex justify-content- align-items-center mb-2">
-                <img class="rounded-circle border border-warning border-2 me-3" src="{{ job.company.logo.url }}" alt="">
-                <div class="fw-semibold">
-                    <h5 class="card-title">{{ job.position | safe }}</h5>
-                    <p class="fw-bold card-subtitle">{{ job.company.company_name | safe }}</p>
+        <a href="../single-job/{{ job.id | safe }}/">
+            <div id="job-card" class="card px-4 py-3" data-job-id="">
+                <div class="d-md-flex justify-content- align-items-center mb-2">
+                    <img class="rounded-circle border border-warning border-2 me-3" src="{{ job.company.logo.url }}" alt="">
+                    <div class="fw-semibold">
+                        <h5 class="card-title">{{ job.position | safe }}</h5>
+                        <p class="fw-bold card-subtitle">{{ job.company.company_name | safe }}</p>
+                    </div>
+                </div>
+                <p class="card-text fw-semibold text-secondary">{{ job.description | safe }}</p>
+                <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
+                    <p>Rs. {{ job.pay_rate | safe }} per hr.</p>
+                    <p class="mx-2">{{ job.no_of_applicants | safe }} applications</p>
+                    <p>{{ job.last_apply_date | safe }}</p>
                 </div>
             </div>
-            <p class="card-text fw-semibold text-secondary">{{ job.description | safe }}</p>
-            <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
-                <p>Rs. {{ job.pay_rate | safe }} per hr.</p>
-                <p class="mx-2">{{ job.no_of_applicants | safe }} applications</p>
-                <p>{{ job.last_apply_date | safe }}</p>
-            </div>
-        </div>
+        </a>
     </div>
 
     {% endfor %}

@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from authentication.models import *
 from .threads import *
 from .models import *
@@ -15,11 +15,11 @@ def all_companies(request):
     return render(request, "main/all-companies.html", context)
 
 
-# job list
+# job single
 @login_required(login_url='/student-login/')
-def listed_jobs(request):
-    context["jobs"] = JobModel.objects.filter(is_active=True).order_by("-created_at")
-    return render(request, "main/all-companies.html", context)
+def single_job(request, job_id):
+    context["job"] = JobModel.objects.get(id=job_id)
+    return render(request, "student/job-desc.html", context)
 
 
 # student dashboard
@@ -27,7 +27,7 @@ def listed_jobs(request):
 def student_dashboard(request):
     try:
         user = StudentModel.objects.get(email=request.user)
-        context["jobs"] = JobModel.objects.filter(is_active=True)
+        context["jobs"] = JobModel.objects.filter(is_active=True).order_by("-created_at")
         context["applications"] = JobApplicationModel.objects.filter(applicant=user)
     except Exception as e:
         print(e)
@@ -81,3 +81,18 @@ def tpo_reject_application(request, application_id):
         print(e)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+# Apply for Job
+@login_required(login_url='/student-login/')
+def apply_for_job(request, job_id):
+    try:
+        user = StudentModel.objects.get(email=request.user)
+        job =JobModel.objects.get(id=job_id)
+        app_obj, _ = JobApplicationModel.objects.get_or_create(job=job, applicant=user)
+        thread_obj = send_applied_mail(user.email, job.company.company_name, job.position)
+        thread_obj.start()
+        app_obj.save()
+        return redirect("student-dashboard")
+    except Exception as e:
+        print(e)
+    return render(request, "student/job-desc.html", context)
