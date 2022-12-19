@@ -36,7 +36,7 @@ def student_login(request):
                 return redirect('student-login/')
             login(request, user)
             messages.success(request, 'Student Successfully logged in')
-            return redirect('student-dashboard/')
+            return redirect('student-dashboard')
     except Exception as e:
         print(e)
         return redirect('home')
@@ -70,7 +70,7 @@ def tpo_login(request):
 @login_required(login_url='/student-login/')
 def student_profile(request):
     context["user"] = StudentModel.objects.get(email=request.user)
-    return render(request, "accounts/stu-profile.html", context)
+    return render(request, "student/profile.html", context)
 
 
 # student profile
@@ -98,23 +98,23 @@ def update_student_profile(request):
 def add_student_data(request):
     try:
         if request.method == 'POST':
-            path = str(request.FILES['file'].name)
-        workbook = xlrd.open_workbook(path)
-        sheet = workbook.sheet_by_index(0)
-        for row in range(1,sheet.nrows):
-            org = StudentModel.objects.create(
-                name = str(sheet.cell_value(row,0)),
-                email = str(sheet.cell_value(row,1)).lower(),
-                phone = sheet.cell_value(row,2)
-            )
-            pw = get_random_string(8)
-            org.set_password(pw)
-            thread_obj = send_credentials_mail(str(sheet.cell_value(row,1)).lower(), pw)
-            thread_obj.start()
-            org.save()
+            file_obj = FileSavingModel.objects.create(file=request.FILES['file'])
+            path = str(file_obj.file.path)
+            workbook = xlrd.open_workbook(path)
+            sheet = workbook.sheet_by_index(0)
+            for row in range(1,sheet.nrows):
+                org = StudentModel.objects.create(
+                    name = str(sheet.cell_value(row,0)),
+                    email = str(sheet.cell_value(row,1)).lower(),
+                    phone = sheet.cell_value(row,2)
+                )
+                pw = get_random_string(8)
+                org.set_password(pw)
+                thread_obj = send_credentials_mail(str(sheet.cell_value(row,1)).lower(), pw)
+                thread_obj.start()
+                org.save()
     except Exception as e:
         print(e)
-        return redirect('home')
     return render(request, "tpo/add-students.html")
 
 

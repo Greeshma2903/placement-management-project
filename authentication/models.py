@@ -19,6 +19,7 @@ class TeacherModel(MyBaseUser):
 
 
 class StudentModel(MyBaseUser):
+    roll_no = models.IntegerField(null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     skills = models.TextField(null=True, blank=True)
     resume = models.FileField(upload_to="resume", max_length=100, blank=True, validators=[validate_file_extension_pdf, validate_file_size])
@@ -31,3 +32,7 @@ class StudentModel(MyBaseUser):
              return self.name 
     class Meta:
         db_table = 'student'
+
+
+class FileSavingModel(models.Model):
+    file = models.FileField(upload_to="excel", max_length=100)

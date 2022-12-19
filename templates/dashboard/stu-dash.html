@@ -3,19 +3,64 @@
 
 {% block content %}
 
-    <!-- job board -->
-    <section class="container my-3 text-primary">
-        <h3>Add Student Login Details</h3>
-        <div class="h-100 d-flex align-items-center justify-content-center text-center">
+<section class="student-job-board container my-5">
 
-            <form>
-                <div class="mb-3">
-                    <label for="uploadData" class="form-label">Upload data from excel sheet</label>
-                    <input type="file" id="uploadData" class="form-control">
+    <h3 class="mb-4 fw-bold">Apply for Jobs</h3>
+
+    {% for job in jobs %}
+
+    <div class="application-container row row-cols-lg-3 row-cols-md-2 row-cols-1">
+        <div id="job-card" class="card px-4 py-3" data-job-id="">
+            <div class="d-md-flex justify-content- align-items-center mb-2">
+                <img class="rounded-circle border border-warning border-2 me-3" src="{{ job.company.logo.url }}" alt="">
+                <div class="fw-semibold">
+                    <h5 class="card-title">{{ job.position | safe }}</h5>
+                    <p class="fw-bold card-subtitle">{{ job.company.company_name | safe }}</p>
                 </div>
-                <button class="btn btn-primary" type="submit">Upload</button>
-            </form>
+            </div>
+            <p class="card-text fw-semibold text-secondary">{{ job.description | safe }}</p>
+            <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
+                <p>Rs. {{ job.pay_rate | safe }} per hr.</p>
+                <p class="mx-2">{{ job.no_of_applicants | safe }} applications</p>
+                <p>{{ job.last_apply_date | safe }}</p>
+            </div>
         </div>
-    </section>
+    </div>
+
+    {% endfor %}
+
+    <br><br>
+    <h3 class="mb-4 fw-bold">Jobs You Applied For</h3>
+
+    {% for app in applications %}
+
+    <div class="application-container row row-cols-lg-3 row-cols-md-2 row-cols-1">
+        <div id="job-card" class="card px-4 py-3" data-job-id="">
+            <div class="d-md-flex justify-content- align-items-center mb-2">
+                <img class="rounded-circle border border-warning border-2 me-3" src="{{ app.job.company.logo.url }}" alt="">
+                <div class="fw-semibold">
+                    <h5 class="card-title">{{ app.job.position | safe }}</h5>
+                    <p class="fw-bold card-subtitle">{{ app.job.company.company_name | safe }}</p>
+                </div>
+            </div>
+            <p class="card-text fw-semibold text-secondary">{{ app.job.description | safe }}</p>
+            <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
+                <p>{{ app.job.no_of_applicants | safe }}</p>
+                <p class="mx-2">.</p>
+                <p>{{ app.job.last_apply_date | safe }}</p>
+            </div>
+            <div class="application-status card-header-custom pt-2 border-top">
+                <span class="badge rounded-pill text-bg-success" data-status-placement="placed">{{ app.status | safe }}</span>
+                <!-- <span class="badge rounded-pill text-bg-secondary" data-status-placement="rejected">rejected</span> -->
+                <!-- <span class="badge rounded-pill text-bg-warning" data-status-placement="placed">in review</span> -->
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <br><br>
+
+</section>
 
 {% endblock content %}

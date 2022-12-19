@@ -1,0 +1,22 @@
+{% extends '../teacher_base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <!-- job board -->
+        <section class="container my-3 text-primary">
+            <h3>Add Student Login Details</h3>
+            <div class="h-100 d-flex align-items-center justify-content-center text-center">
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="uploadData" class="form-label">Upload data from excel sheet</label>
+                        <input type="file" id="uploadData" name="file" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Upload</button>
+                </form>
+            </div>
+        </section>
+
+{% endblock content %}

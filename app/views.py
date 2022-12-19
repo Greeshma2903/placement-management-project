@@ -27,9 +27,8 @@ def listed_jobs(request):
 def student_dashboard(request):
     try:
         user = StudentModel.objects.get(email=request.user)
-        objs = JobApplicationModel.objects.filter(applicant=user)
-        context["profile"] = user
-        context["applications"] = objs
+        context["jobs"] = JobModel.objects.filter(is_active=True)
+        context["applications"] = JobApplicationModel.objects.filter(applicant=user)
     except Exception as e:
         print(e)
     return render(request, "dashboard/stu-dash.html", context)

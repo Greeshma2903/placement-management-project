@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
 
 <head>
-    
+
     <title>Placement Management System</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="title" content="Placement Management System">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Placement Management System">
-	<meta name="author" content="Atharva Parkhe">
-	<link rel="shortcut icon" href="{% static 'img/logo.png' %}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="title" content="Placement Management System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Placement Management System">
+    <meta name="author" content="Atharva Parkhe">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}">
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="#">
-	<meta property="og:title" content="Placement Management System">
-	<meta property="og:description" content="Placement Management System">
-	<meta property="og:image" content="{% static 'img/logo.png' %}">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:title" content="Placement Management System">
+    <meta property="og:description" content="Placement Management System">
+    <meta property="og:image" content="{% static 'img/logo.png' %}">
 
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="#">
-	<meta property="twitter:title" content="Placement Management System">
-	<meta property="twitter:description" content="Placement Management System">
-	<meta property="twitter:image" content="{% static 'img/logo.png' %}">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="#">
+    <meta property="twitter:title" content="Placement Management System">
+    <meta property="twitter:description" content="Placement Management System">
+    <meta property="twitter:image" content="{% static 'img/logo.png' %}">
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -42,65 +42,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
-        
+
 </head>
+
+<!-- navbar home -->
+<header class="p-3 text-bg-dark">
+    <nav
+        class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
+        <a href="{% url 'home-page' %}" class="navbar-brand logo-container">
+            <img src="{% static 'img/logo.png' %}" alt="logo" />
+            <b>Placement Management System - Student Portal</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
+            <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
+                <li class="nav-item"><a href="{% url 'student-dashboard' %}" class="nav-link px-2">Job Board</a></li>
+                <li class="nav-item"><a href="{% url 'student-profile' %}" class="nav-link px-2">Profile</a></li>
+                <!-- <li class="nav-item"><a href="#" class="nav-link px-2">Job Notifications</a></li> -->
+            </ul>
+            <a href="{% url 'student-logout' %}">
+                <button class="btn btn-warning">Logout</button>
+            </a>
+        </div>
+    </nav>
+</header>
 
 <body>
     <div class="container_fluid position-relative min-vh-100 h-100 w-100 mx-auto">
-        <!-- navbar home -->
-        <header class="p-3 text-bg-dark">
-            <nav
-                class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
-                <a href="{% url 'home-page' %}" class="navbar-brand logo-container">
-                    <img src="{% static 'img/logo.png' %}" alt="logo" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
-                    <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
-                        <li class="nav-item"><a href="{% url 'student-dashboard' %}" class="nav-link px-2">Job Board</a></li>
-                        <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link px-2">Profile</a></li>
-                        <!-- <li class="nav-item"><a href="#" class="nav-link px-2">Job Notifications</a></li> -->
-                    </ul>
-                    <a href="{% url 'student-logout' %}">
-                        <button class="btn btn-warning">Logout</button>
-                    </a>
-                </div>
-            </nav>
-        </header>
         <body>
             {% block content %}
             {% endblock content %}
         </body>
-    
+
         <!-- footer -->
         <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom-0 w-100">
-        <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted">Made with ❤️ by Atharva Parkhe and Team.</span>
-        </div>
+            class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom-0 w-100">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-muted">Made with ❤️ by Atharva Parkhe and Team.</span>
+            </div>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-4">
-                <a href="https://www.linkedin.com/in/atharvparkhe" title="LinkedIn" class="fs-4"><i class="fa-brands fa-linkedin"></i></a>
-            </li>
-            <li class="ms-4">
-                <a href="https://www.instagram.com/atharvparkhe/" title="Instagram" class="fs-4"><i class="fa-brands fa-instagram"></i></a>
-            </li>
-            <li class="ms-4">
-                <a href="https://github.com/atharvparkhe" title="GitHub" class="fs-4"><i class="fa-brands fa-github"></i></a>
-            </li>
-            <li class="ms-4">
-                <a href="https://www.twitter.com/atharvparkhe/" class="fs-4"><i class="fa-brands fa-twitter"></i></a>
-            </li>
-        </ul>
-    </footer>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-4">
+                    <a href="https://www.linkedin.com/in/atharvparkhe" title="LinkedIn" class="fs-4"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </li>
+                <li class="ms-4">
+                    <a href="https://www.instagram.com/atharvparkhe/" title="Instagram" class="fs-4"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li class="ms-4">
+                    <a href="https://github.com/atharvparkhe" title="GitHub" class="fs-4"><i
+                            class="fa-brands fa-github"></i></a>
+                </li>
+                <li class="ms-4">
+                    <a href="https://www.twitter.com/atharvparkhe/" class="fs-4"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </li>
+            </ul>
+        </footer>
     </div>
 
-    
+
 </body>
 
 </html>
