@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-{% block title %}
 <html lang="en">
-{% load static %}
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Document</title>
-    {% endblock title %}
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
@@ -18,19 +16,17 @@
         crossorigin="anonymous"></script>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
-
-    <!-- javascript -->
-    <script defer src="/static/js/scripts.js"></script>
 </head>
 
-<body class="container_fluid position-relative min-vh-100 h-100">
+<body>
+    <div class="container_fluid position-relative min-vh-100 h-100 w-100 mx-auto">
         <!-- navbar home -->
         <header class="p-3 text-bg-dark">
             <nav
@@ -45,47 +41,37 @@
 
                 <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
                     <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
-                        <li class="nav-item"><a href="#" class="active nav-link px-2">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2">About</a></li>
+                        <li class="nav-item"><a href="#" class="active nav-link px-2">Dashboard</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2">My Applications</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link px-2">Profile</a></li>
                     </ul>
+
+                    <button class="btn btn-warning">Logout</button>
                 </div>
             </nav>
         </header>
 
-        <!-- login section -->
-        <section class="login-section container col-xl-10 col-xxl-8 px-4 py-5 text-center">
-            <h1 class="display-4 fw-bold lh-1 mb-3">
-                Placement Portal
-            </h1>
-            <p class="fs-4 pb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus sapiente esse delectus
-                dolorum beatae sequi possimus sed soluta dignissimos.
-            </p>
-            <div class="d-flex flex-column align-items-center">
-                <a class="btn btn-warning mb-4" href="#">Login as Placement Officer</a>
-                <a class="btn btn-warning mb-4" href="#">Login as Student</a>
-            </div>
-        </section>
-
+    
         <!-- footer -->
         <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom-0 w-100">
-        <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Placement System</span>
-        </div>
+            class="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 px-5 border-top position-absolute bottom-0 container-fluid">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Placement System</span>
+            </div>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3">
-                <a href="#">twitter</a>
-            </li>
-            <li class="ms-3">
-                <a href="#">facebook</a>
-            </li>
-            <li class="ms-3">
-                <a href="#">site</a>
-            </li>
-        </ul>
-    </footer>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3">
+                    <a href="#">twitter</a>
+                </li>
+                <li class="ms-3">
+                    <a href="#">facebook</a>
+                </li>
+                <li class="ms-3">
+                    <a href="#">site</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
 </body>
 
 </html>

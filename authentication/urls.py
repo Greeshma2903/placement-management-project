@@ -3,9 +3,6 @@ from . import views
 from .views import *
 
 urlpatterns = [
-	# path('signup/', views.signUp, name="signup"),
-	# path('verify/', views.verify, name="verify"),
-	# path('login/', views.logIn, name="login"),
-	# path('forgot/', views.forgot, name="forgot"),
-	# path('reset/', views.reset, name="reset"),
+	 path("base/", views.LogIn_student, name="student-login"),
+	 path("base/", views.LogIn_tpo, name="tpo-login"),
 ]

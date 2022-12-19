@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="container-fluid position-relative min-vh-100 h-100 mx-auto p-0">
+    <!-- navbar home -->
+    <header class="p-3 text-bg-dark">
+        <nav
+            class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
+            <a href="/" class="navbar-brand logo-container">
+                <img src="/data/logo.png" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
+                <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
+                    <li class="nav-item"><a href="#" class="active nav-link px-2">Job Board</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">Job Notifications</a></li>
+                </ul>
+
+                <button class="btn btn-warning">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- profile section -->
+    <section class="student_profile py-5 container">
+        <a class="btn btn-primary" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          back</a>
+        <h2 class="text-primary fw-bolder my-3">Add Job Details</h2>
+        <form class="d-md-flex justify-content-around align-items-start">
+            <div class="flex-fill p-md-4">
+                <div class="mb-3">
+                    <label for="jobRoleInput" class="form-label">Job Role <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="jobRoleInput" placeholder="Software Engineer..."
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="companyName" class="form-label">Company Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="companyName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="companyLogo" class="form-label">Company Logo <span class="text-danger">*</span></label>
+                    <input class="form-control" type="file" id="companyLogo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="jobDescInput" class="form-label">Job Description <span
+                            class="text-danger">*</span></label>
+                    <textarea class="form-control" id="jobDescInput" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="jobDeadline" class="form-label">Application Deadline <span
+                            class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="jobDeadline" required aria-required>
+                </div>
+                <div class="mb-3">
+                    <label for="companyDescription" class="form-label">Company Description</label>
+                    <textarea class="form-control" id="companyDescription"></textarea>
+                </div>
+            </div>
+            <div class="flex-fill p-md-4">
+
+                <div class="mb-3">
+                    <label for="jobSkills" class="form-label">Skills required <span class="text-danger">*</span></label>
+                    <textarea name="skillsReqd" id="jobSKills" class="form-control" required aria-required
+                        placeholder="html, css..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="jobLinks" class="form-label">External Links related to Job <span
+                            class="text-danger">*</span></label>
+                    <input type="url" name="jobLinks" id="jobLinks" class="form-control" required aria-required>
+                </div>
+                <h6 class="text-primary">Contact Details of Company</h6>
+                <div class="mb-3">
+                    <label for="contactName" class="form-label">Contact Name</label>
+                    <input class="form-control" type="text" id="contactName">
+                </div>
+                <div class="mb-3">
+                    <label for="contactNumber" class="form-label">Phone Number</label>
+                    <input class="form-control" type="tel" id="contactNumber" maxlength="10">
+                </div>
+                <div class="mb-3">
+                    <label for="contactEmail" class="form-label"> Email</label>
+                    <input class="form-control" type="email" id="contactEmail">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- footer -->
+    <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom- w-100">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Placement System</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a href="#">twitter</a>
+            </li>
+            <li class="ms-3">
+                <a href="#">facebook</a>
+            </li>
+            <li class="ms-3">
+                <a href="#">site</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

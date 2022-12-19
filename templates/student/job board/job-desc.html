@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="container-fluid position-relative min-vh-100 h-100 mx-auto p-0">
+    <!-- navbar home -->
+    <header class="p-3 text-bg-dark">
+        <nav
+            class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
+            <a href="/" class="navbar-brand logo-container">
+                <img src="/data/logo.png" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-lg-grow-0" id="navbarOptions">
+                <ul class="navbar-nav col-12 col-lg-auto mb-2 justify-content-center mb-2 mb-md-0">
+                    <li class="nav-item"><a href="#" class="active nav-link px-2">Dashboard</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">My Applications</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2">Profile</a></li>
+                </ul>
+
+                <button class="btn btn-warning">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="job-description container py-5">
+        <h2 class="mb-4 fw-bolder text-warning">Job Description:</h2>
+        <div class="d-flex flex-column flex-md-row w-100 justify-content-between align-items-center gap-2 my-2">
+            <div class="job-title d-md-flex justify-content-start align-items-center mb-4">
+                <div class="logo-container me-4">
+                    <img class="rounded-circle border border-warning border-2 me-md-3" src="/data/1.jpeg" alt="">
+                </div>
+                <div class="fw-semibold">
+                    <h5 class="title text-uppercase">Software Engineer</h5>
+                    <p class="text text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque,
+                        voluptate?</p>
+                </div>
+            </div>
+            <button class="btn btn-warning fw-semibold px-5">apply</button>
+        </div>
+        <div class="job-desc-container">
+            <div class="job-desc-grid row gy-3 gx-3 justify-content-lg-around ">
+                <div class="job-applicant-count col-sm border border-gray d-flex align-items-center fw-bold me-sm-2">
+                    <span>Applicants: </span>
+                    <span class="applicant-count">10</span>
+                </div>
+                <div
+                    class="job-deadline col-sm border border-gray d-flex flex-column justify-content-md-center me-sm-2">
+                    <p>Deadline of application:</p>
+                    <p class="fw-bold">21st Dec 2022</p>
+                </div>
+                <div class="job-skills col-sm border border-gray d-flex flex-column me-sm-2">
+                    <p>Skills:</p>
+                    <div class="job-skill-badges">
+                        <span class="badge text-bg-warning">React</span>
+                        <span class="badge text-bg-warning">DS & Algo</span>
+                    </div>
+                </div>
+                <div class="job-info border border-gray col-md-12">
+                    <div class="company-infor">
+                        <h4>About Company</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, numquam!</p>
+                    </div>
+                    <div class="offer-info">
+                        <h4>About Offer</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis soluta eos ipsum nulla
+                            porro quos nisi tempora placeat in voluptates.</p>
+                    </div>
+                    <div class="job-desc-links">
+                        <h4>Links</h4>
+                        <ul>
+                            <li>link</li>
+                            <li>link</li>
+                            <li>link</li>
+                        </ul>
+                    </div>
+                    <div class="job-desc-contact">
+                        <h4>Contact Info</h4>
+                        <p class="contact-name">Contact: John Doe</p>
+                        <p>Phone: xxx</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom- w-100">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Placement System</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a href="#">twitter</a>
+            </li>
+            <li class="ms-3">
+                <a href="#">facebook</a>
+            </li>
+            <li class="ms-3">
+                <a href="#">site</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

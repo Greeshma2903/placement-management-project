@@ -1,0 +1,58 @@
+body {
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+  max-width: 1700px;
+}
+
+/* ==================== login home ==================== */
+.logo-container {
+  width: 50px;
+}
+
+.logo-container img {
+  width: 100%;
+}
+
+.login-section p {
+  font-size: 14px;
+}
+
+
+/* ==================== job board ==================== */
+
+.card {
+  width: 21rem;
+}
+
+.card img {
+  width: 60px;
+}
+
+.card p {
+  font-size: 0.8rem;
+}
+
+/* ================= job description ================= */
+
+.job-description .logo-container {
+  width: 80px;
+}
+
+.job-descriptin .logo-container img {
+  object-fit: cover;
+}
+
+.job-desc-grid > div {
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+/* @media screen and (min-width: 992px) {
+  .job-desc-grid > div:not(.job-info) {
+    margin: 0 0.5rem;
+  }
+} */
+
+/* ================= job description ================= */
+footer {
+  height:60px;
+}
