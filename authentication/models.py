@@ -22,6 +22,7 @@ class StudentModel(models.Model):
     job = models.TextField()
     objects = models.Manager()
     department = models.TextField()
+    bio = models.TextField(null=True, blank=True)
     def __str__(self):
              return self.uname 
     class Meta:
