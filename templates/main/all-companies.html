@@ -3,18 +3,42 @@
 
 {% block content %}
 
-<!-- login section -->
-<!-- <section class="login-section container col-xl-10 col-xxl-8 px-4 py-5 text-center">
-    <h1 class="display-4 fw-bold lh-1 mb-3">
-        Placement Management System
-    </h1>
-    <p class="fs-4 pb-5">
-        The purpose of this system is to automate the existing manual system with the help of computer software and store the data entered for a longer time with ease of access.
-    </p>
-    <div class="d-flex flex-column align-items-center">
-        <a class="btn btn-warning mb-4" href="{% url 'student-login' %}">Login as Placement Officer</a>
-        <a class="btn btn-warning mb-4" href="{% url 'tpo-login' %}">Login as Student</a>
-    </div> -->
+<!-- company section -->
+<section class="company-section container py-5">
+    <h2 class="mb-3">Companies</h2>
+    <h6 class="mb-4">A list of companies where our students are placed 🙌</h6>
+    <div class="company-card-container row row-cols-1 row-cols-2 row-cols-lg-3 gap-4">
+        <div id="company-card" class="col card px-4 py-3" data-company-id="">
+            <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
+                <img class="rounded-circle border border-warning border-2 me-3" src="/data/logo/1.png" alt="">
+                <div class="fw-semibold">
+                    <h4 class="card-title">Tesla</h4>
+                </div>
+            </div>
+            <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Lorem ipsum dolor sit amet.
+                Itaque, voluptate?</p>
+            <div class="d-sm-flex justify-content-end">
+                <a id="company-link" class="card-link btn btn-warning btn-sm">about</a>
+            </div>
+        </div>
+        <div id="company-card" class="col card px-4 py-3" data-company-id="">
+            <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
+                <img class="rounded-circle border border-warning border-2 me-3" src="/data/logo/2.png" alt="">
+                <div class="fw-semibold">
+                    <h4 class="card-title">Google</h4>
+                </div>
+            </div>
+            <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Lorem
+                ipsum dolor sit amet.
+                Itaque, voluptate?</p>
+            <div class="d-sm-flex justify-content-end">
+                <a id="company-link" class="card-link btn btn-warning btn-sm">about</a>
+            </div>
+        </div>
+    </div>
+    </div>
 </section>
 
 {% endblock content %}

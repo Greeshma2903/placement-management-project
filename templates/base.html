@@ -43,6 +43,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
         rel="stylesheet" />
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- javascript -->
     <script defer src="{% static 'js/scripts.js' %}"></script>
 </head>
@@ -53,7 +56,8 @@
             <nav
                 class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
                 <a href="/" class="navbar-brand logo-container">
-                    <img src="{% static 'img/logo.png' %}" alt="logo" />
+                    <img src="{% static 'img/logo.png' %}" alt="logo" class="me-2"/>
+                    Placement Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,17 +85,17 @@
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3">
-                <a href="https://www.linkedin.com/in/atharvparkhe">Linkedin</a>
+            <li class="ms-4">
+                <a href="https://www.linkedin.com/in/atharvparkhe" title="LinkedIn" class="fs-4"><i class="fa-brands fa-linkedin"></i></a>
             </li>
-            <li class="ms-3">
-                <a href="https://www.instagram.com/atharvparkhe/">Instagram</a>
+            <li class="ms-4">
+                <a href="https://www.instagram.com/atharvparkhe/" title="Instagram" class="fs-4"><i class="fa-brands fa-instagram"></i></a>
             </li>
-            <li class="ms-3">
-                <a href="https://github.com/atharvparkhe">Github</a>
+            <li class="ms-4">
+                <a href="https://github.com/atharvparkhe" title="GitHub" class="fs-4"><i class="fa-brands fa-github"></i></a>
             </li>
-            <li class="ms-3">
-                <a href="https://www.twitter.com/atharvparkhe/">Twitter</a>
+            <li class="ms-4">
+                <a href="https://www.twitter.com/atharvparkhe/" class="fs-4"><i class="fa-brands fa-twitter"></i></a>
             </li>
         </ul>
     </footer>

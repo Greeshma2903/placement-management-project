@@ -12,19 +12,21 @@ body {
   width: 100%;
 }
 
-.login-section p {
+.home-section p {
   font-size: 14px;
 }
 
 
 /* ==================== job board ==================== */
 
-.card {
-  width: 21rem;
+#job-card {
+  width: 24rem;
 }
 
 .card img {
   width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .card p {
@@ -52,7 +54,7 @@ body {
   }
 } */
 
-/* ================= job description ================= */
+/* ================= footer ================= */
 footer {
   height:60px;
 }

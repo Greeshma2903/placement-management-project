@@ -32,7 +32,7 @@
             <nav
                 class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
                 <a href="/" class="navbar-brand logo-container">
-                    <img src="/data/logo.png" alt="logo" />
+                    <img src="/static/img/logo.png" alt="logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,34 @@
             </nav>
         </header>
 
-    
+        <!-- job board -->
+        <section class="student-job-board container my-5">
+            <h3 class="mb-4 fw-bold">Apply for Jobs</h3>
+            <div class="student-jobs-container row row-cols-lg-3 row-cols-md-2 row-cols-1">
+                <div id="job-card" class="card px-4 py-3" data-job-id="">
+                    <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
+                        <img class="rounded-circle border border-warning border-2 me-3" src="/data/1.jpeg" alt="">
+                        <div class="fw-semibold">
+                            <h5 class="card-title">Software Engineer</h5>
+                            <p class="fw-bold card-subtitle">Company</p>
+                        </div>
+                    </div>
+                    <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Lorem ipsum dolor sit amet.
+                        Itaque, voluptate?</p>
+                    <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
+                        <p>12 applicants</p>
+                        <p class="mx-2">.</p>
+                        <p>2 days left</p>
+                    </div>
+                    <div class="d-sm-flex justify-content-end">
+                        <button id="job-apply-btn" class="btn btn-warning btn-sm fw-semibold">details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- footer -->
         <footer
             class="d-flex flex-wrap justify-content-between align-items-center py-3 my-3 px-5 border-top position-absolute bottom-0 container-fluid">
