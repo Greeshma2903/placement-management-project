@@ -5,6 +5,7 @@ from authentication.models import StudentModel
 
 class CompanyModel(BaseModel):
     company_name = models.CharField(max_length=50)
+    logo = models.ImageField(upload_to="logo", height_field=None, width_field=None, max_length=None)
     address = models.TextField()
     web_link = models.URLField(max_length=200)
     def __str__(self):

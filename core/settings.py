@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'authentication.apps.AuthenticationConfig',
     'app.apps.AppConfig',
-    # 'job.apps.JobConfig',
 ]
 
 MIDDLEWARE = [
@@ -39,17 +38,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+AUTH_USER_MODEL = 'base.MyBaseUser'
+
 TEMPLATES_DIRS = [
-    os.path.join(BASE_DIR, "templates"),
-    os.path.join(BASE_DIR, "data/newsletter"),
-    os.path.join(BASE_DIR, "data/coupon")
+    os.path.join(BASE_DIR, "templates")
 ]
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, "templates")],
-        # 'DIRS': TEMPLATES_DIRS,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,8 +61,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
-
-AUTH_USER_MODEL = 'base.BaseUser'
 
 DATABASES = {
     'default': {

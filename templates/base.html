@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-{% block title %}
 <html lang="en">
 {% load static %}
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Placement Management System</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="title" content="Placement Management System">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Placement Management System">
+	<meta name="author" content="Atharva Parkhe">
+	<link rel="shortcut icon" href="/static/img/logo.png">
 
-    <title>Document</title>
-    {% endblock title %}
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="#">
+	<meta property="og:title" content="Placement Management System">
+	<meta property="og:description" content="Placement Management System">
+	<meta property="og:image" content="/static/img/logo.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="#">
+	<meta property="twitter:title" content="Placement Management System">
+	<meta property="twitter:description" content="Placement Management System">
+	<meta property="twitter:image" content="/static/img/logo.png">
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
@@ -32,7 +49,7 @@
 
 <body class="container_fluid position-relative min-vh-100 h-100">
         <!-- navbar home -->
-        <header class="p-3 text-bg-dark">
+        <!-- <header class="p-3 text-bg-dark">
             <nav
                 class="container d-flex flex-wrap align-items-center justify-content-between navbar-dark bg-dark navbar-expand-lg">
                 <a href="/" class="navbar-brand logo-container">
@@ -50,39 +67,30 @@
                     </ul>
                 </div>
             </nav>
-        </header>
+        </header> -->
 
-        <!-- login section -->
-        <section class="login-section container col-xl-10 col-xxl-8 px-4 py-5 text-center">
-            <h1 class="display-4 fw-bold lh-1 mb-3">
-                Placement Portal
-            </h1>
-            <p class="fs-4 pb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus sapiente esse delectus
-                dolorum beatae sequi possimus sed soluta dignissimos.
-            </p>
-            <div class="d-flex flex-column align-items-center">
-                <a class="btn btn-warning mb-4" href="#">Login as Placement Officer</a>
-                <a class="btn btn-warning mb-4" href="#">Login as Student</a>
-            </div>
-        </section>
+        {% block content %}
+        {% endblock content %}
 
         <!-- footer -->
         <footer
         class="d-flex flex-wrap justify-content-between align-items-center py-4 px-5 border-top position-absolute bottom-0 w-100">
         <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Placement System</span>
+            <span class="mb-3 mb-md-0 text-muted">Made with ❤️ by Atharva Parkhe and team.</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3">
-                <a href="#">twitter</a>
+                <a href="https://www.linkedin.com/in/atharvparkhe">Linkedin</a>
             </li>
             <li class="ms-3">
-                <a href="#">facebook</a>
+                <a href="https://www.instagram.com/atharvparkhe/">Instagram</a>
             </li>
             <li class="ms-3">
-                <a href="#">site</a>
+                <a href="https://github.com/atharvparkhe">Github</a>
+            </li>
+            <li class="ms-3">
+                <a href="https://www.twitter.com/atharvparkhe/">Twitter</a>
             </li>
         </ul>
     </footer>

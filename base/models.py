@@ -11,10 +11,9 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-class BaseUser(AbstractBaseUser, PermissionsMixin, BaseModel):
+class MyBaseUser(AbstractBaseUser, PermissionsMixin, BaseModel):
     email = models.EmailField(max_length=100, unique=True)
-    f_name = models.CharField(max_length=100, validators=[validate_name])
-    l_name = models.CharField(max_length=100, validators=[validate_name])
+    name = models.CharField(max_length=100, validators=[validate_name])
     phone = models.CharField(max_length=13, null=True, blank=True)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -24,3 +23,4 @@ class BaseUser(AbstractBaseUser, PermissionsMixin, BaseModel):
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = []
+
