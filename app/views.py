@@ -38,7 +38,7 @@ def student_dashboard(request):
 @login_required(login_url='/tpo-login/')
 def tpo_dashboard(request):
     try:
-        context["jobs"] = JobApplicationModel.objects.filter(job__is_active=True)
+        context["jobs"] = JobModel.objects.all().order_by("-created_at")
     except Exception as e:
         print(e)
     return render(request, "dashboard/tpo-dash.html", context)
@@ -51,7 +51,7 @@ def tpo_applicants_list(request, job_id):
         context["job_applicantion"] = JobApplicationModel.objects.filter(job__id=job_id)
     except Exception as e:
         print(e)
-    return render(request, "dashboard/tpo-dash.html", context)
+    return render(request, "tpo/applicants-list.html", context)
 
 
 # Job Applicaition Accept
@@ -88,7 +88,7 @@ def apply_for_job(request, job_id):
     try:
         user = StudentModel.objects.get(email=request.user)
         job =JobModel.objects.get(id=job_id)
-        app_obj, _ = JobApplicationModel.objects.get_or_create(job=job, applicant=user)
+        app_obj, _ = JobApplicationModel.objects.get_or_create(job=job, applicant=user, status="Applied")
         thread_obj = send_applied_mail(user.email, job.company.company_name, job.position)
         thread_obj.start()
         app_obj.save()

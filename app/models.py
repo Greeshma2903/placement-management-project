@@ -41,7 +41,7 @@ class JobApplicationModel(BaseModel):
     applicant = models.ForeignKey(StudentModel, related_name="job_applicant", on_delete=models.CASCADE)
     status = models.CharField(choices=PLACEMENT_STATUS, max_length=10, default=PLACEMENT_STATUS[0])
     def __str__(self):
-        return self.job.posting
+        return self.applicant.name
     class Meta:
         db_table = "job_application"
 

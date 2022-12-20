@@ -7,28 +7,31 @@
     <section class="container my-3">
         <h3 class="mb-4 fw-bold">Jobs</h3>
         <div class="tpo-jobs-container row row-cols-lg-3 row-cols-md-2 row-cols-1">
+        
+        {% for job in jobs %}
 
             <div id="job-card" class="card px-4 py-3" data-job-id="">
                 <div class="card-header-custom d-md-flex justify-content- align-items-center mb-2">
-                    <img class="rounded-circle border border-primary border-2 me-3" src="/data/1.jpeg" alt="">
+                    <img class="rounded-circle border border-primary border-2 me-3" src="{{ job.company.logo.url }}" alt="">
                     <div class="fw-semibold">
-                        <h5 class="card-title">Software Engineer</h5>
-                        <p class="fw-bold card-subtitle">Company</p>
+                        <h5 class="card-title">{{ job.position | safe }}</h5>
+                        <p class="fw-bold card-subtitle">{{ job.company.company_name | safe }}</p>
                     </div>
                 </div>
-                <p class="card-text fw-semibold text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Lorem ipsum dolor sit amet.
-                    Itaque, voluptate?</p>
-                <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
-                    <p>12 applicants</p>
-                    <p class="mx-2">.</p>
-                    <p>2 days left</p>
-                </div>
+                <p class="card-text fw-semibold text-secondary">{{ job.description | safe }}</p>
+                    <div class="d-flex justify-content-between align-items-center text-danger fw-semibold">
+                        <p>Rs. {{ job.pay_rate | safe }} per hr.</p>
+                        <p class="mx-2">{{ job.no_of_applicants | safe }} applications</p>
+                        <p>{{ job.last_apply_date | safe }}</p>
+                    </div>
                 <div class="d-sm-flex justify-content-end">
-                    <button id="job-apply-btn" class="btn btn-primary btn-sm fw-semibold">applicants</button>
+                    <a id="job-apply-btn" href="{% url 'job-applicants' job.id %}" class="btn btn-primary btn-sm fw-semibold">applicants</a>
                 </div>
             </div>
+            {% endfor %}
+            <br>
         </div>
     </section>
+    <br>
 
 {% endblock content %}

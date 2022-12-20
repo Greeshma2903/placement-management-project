@@ -1,0 +1,105 @@
+{% extends '../teacher_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="check-applicants" class="container my-5">
+    <h3>Student Application List: </h3>
+    <p>Here are the list of applicants, who applied for the job, and their data:</p>
+    <div class="student-data-container">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Name</th>
+                    <th scope="col">Mark Status</th>
+                    <!-- <th scope="col"></th> -->
+                </tr>
+            </thead>
+
+            <!-- student 1 start -->
+            <tbody>
+
+                {% for app in job_applicantion %}
+
+                <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td>
+                        {{ app.applicant.name | safe }}
+                    </td>
+                    <!-- offer status -->
+                    <td>
+                        <form action="{% url 'job-applicants-accept' app.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-success btn-sm me-2" type="SUBMIT">ACCEPT</button>
+                        </form>
+                        <form action="{% url 'job-applicants-accept' app.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-danger btn-sm me-2" type="SUBMIT">REJECT</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#studentData">
+                            read more
+                        </button>
+                    </td>
+
+                    <!-- student data: pop up box -->
+                    <div class="modal fade" id="studentData" tabindex="-1" aria-labelledby="studentDataLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="studentDataLabel">{{ app.applicant.name | safe }}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body row row-cols-1">
+                                    <div
+                                        class="stud-img-container rounded-circle mb-2 d-flex justify-content-center align-items-center col">
+                                        <img class="student-data-img" src="{{ app.applicant.headshot.url}}" alt="">
+                                    </div>
+                                    <p class="col"><strong>Email: </strong> {{ app.applicant.email | safe }}</p>
+                                    <p class="col"><strong>Phone Number: </strong> {{ app.applicant.phone | safe }}</p>
+                                    <div class="skill-holder col">
+                                        <p><strong>Skills:</strong> </p>
+                                        <p>{{ app.applicant.skills | safe }}</p>
+                                    </div>
+                                    <div class="bio-holder col">
+                                        <p><strong>Student Bio:</strong> </p>
+                                        <p class="ms-3">{{ app.applicant.bio | safe }}</p>
+                                    </div>
+                                    <div class="resume-holder col">
+                                        <p><strong>Resume:</strong> </p>
+                                        <a href="{{ app.applicant.resume.url }}" class="ms-3" id="download-resume" download="{{ app.applicant.resume.url }}">download here</a>
+                                    </div>
+                                    <br>
+                                    <div class="gh-link col">
+                                        <p><strong>GitHub Link:</strong> </p>
+                                        <a href="" class="ms-3">https://github.com/abd</a>
+                                    </div>
+                                    <br>
+                                    <div class="li-link col">
+                                        <p><strong>LinkedIn Link:</strong> </p>
+                                        <a href="" class="ms-3">https://github.com/abd</a>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <!-- student 1 end -->
+        </table>
+    </div>
+</section>
+
+{% endblock content %}
