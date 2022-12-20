@@ -4,3 +4,4 @@ Pillow==9.3.0
 PyMySQL==1.0.2
 python-decouple==3.6
 sqlparse==0.4.3
+xlrd==2.0.1
