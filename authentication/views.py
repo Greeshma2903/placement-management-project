@@ -135,7 +135,7 @@ def tpo_logout(request):
 
 # add tpo
 def create_tpo(request):
-    obj = TeacherModel.objects.create(name="a", email="a@gmail.com")
-    obj.set_password("123")
+    obj = TeacherModel.objects.create(name="nadine", email="nadine@gmail.com")
+    obj.set_password("password")
     obj.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 
