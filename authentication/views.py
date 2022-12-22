@@ -39,10 +39,9 @@ def student_login(request):
             return redirect('student-dashboard')
     except Exception as e:
         print(e)
-        return redirect('home')
     return render(request, "accounts/student-login.html")
 
-
+    
 # tpo login
 def tpo_login(request):
     try:
@@ -62,7 +61,6 @@ def tpo_login(request):
             return redirect('tpo-dashboard')
     except Exception as e:
         print(e)
-        return redirect('home')
     return render(request, "accounts/tpo-login.html")
 
 
@@ -135,7 +133,7 @@ def tpo_logout(request):
 
 # add tpo
 def create_tpo(request):
-    obj = TeacherModel.objects.create(name="nadine", email="nadine@gmail.com")
+    obj = TeacherModel.objects.create(name="Manisha", email="manisha@gmail.com")
     obj.set_password("password")
     obj.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 

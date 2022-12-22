@@ -11,7 +11,7 @@ context = {}
 # all companies page
 def all_companies(request):
     context["companies"] = CompanyModel.objects.all()
-    # context["companies"] = CompanyModel.objects.raw('SELECT * FROM myapp_person')
+    # context["companies"] = CompanyModel.objects.raw('SELECT * FROM company')
     return render(request, "main/all-companies.html", context)
 
 
@@ -19,6 +19,7 @@ def all_companies(request):
 @login_required(login_url='/student-login/')
 def single_job(request, job_id):
     context["job"] = JobModel.objects.get(id=job_id)
+    # context["job"] = JobModel.objects.raw(f"SELECT * FROM job where id={job_id}")
     return render(request, "student/job-desc.html", context)
 
 
@@ -28,6 +29,7 @@ def student_dashboard(request):
     try:
         user = StudentModel.objects.get(email=request.user)
         context["jobs"] = JobModel.objects.filter(is_active=True).order_by("-created_at")
+        # context["jobs"] = JobModel.objects.raw('SELECT * FROM job where is_active=true created_at dec')
         context["applications"] = JobApplicationModel.objects.filter(applicant=user)
     except Exception as e:
         print(e)

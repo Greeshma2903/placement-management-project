@@ -13,8 +13,7 @@ urlpatterns = [
 	path("student-logout/", views.student_logout, name="student-logout"),
 	path("tpo-logout/", views.tpo_logout, name="tpo-logout"),
 	
-	# path("tpo-create/", views.create_tpo, name="tpo-create"),
-	
+	path("tpo-create/", views.create_tpo, name="tpo-create"),
 
 	path("student-profile/", views.student_profile, name="student-profile"),
 	path("update-student-profile/", views.update_student_profile, name="update-student-profile"),

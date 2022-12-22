@@ -3,4 +3,3 @@ from .models import *
 
 admin.site.register(StudentModel)
 admin.site.register(TeacherModel)
-admin.site.register(SkillsModel)
